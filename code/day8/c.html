@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<input type="text" id="txt" />
+<script>
+   var oTxt = document.getElementById("txt");
+	var reg=/^([1-9]|1[0-2])$/;
+	oTxt.onblur=function(){
+	if(reg.test(oTxt.value)){
+		alert("您输入的是"+oTxt.value);
+	}
+	else
+	{
+		alert("输入的非法");
+	}
+}
+</script>
+   	
+   
+</body>
+</html>

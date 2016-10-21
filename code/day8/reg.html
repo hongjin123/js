@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+		<input type="text" id="txt" />
+		<div id="container"></div>
+	<script>
+	    var datas=["电视","电脑","电冰箱","手机","洗衣机"];
+	/*	var r=/电/;
+		var r1=new RegExp("a");
+		alert(r.test(datas[0]));*/
+		
+		var oTxt=document.getElementById("txt");
+		var oContainer=document.getElementById("container");
+		oTxt.onkeyup=function()
+		{
+			oContainer.innerHTML="";
+			if(this.value!="")
+			{
+				var v=this.value;
+				var r1=new RegExp(this.value);
+				for(var i=0;i<datas.length;i++){
+					if( r1.test(datas[i]))
+					{
+						var oDiv=document.createElement("div");
+						oDiv.onclick=function()
+						{
+							oTxt.value=this.innerHTML;
+							oContainer.innerHTML="";
+						}
+						oDiv.innerHTML=datas[i];
+						oContainer.appendChild(oDiv);		
+					}
+				}
+			}
+			
+		}
+	</script>
+</body>
+</html>

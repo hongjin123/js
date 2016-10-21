@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body><a href="#">three</a><br />
+	<img src="images/aimgtext.jpg" />
+	
+	<script>
+		var oLink=document.links[0];
+		var oImg=document.images[0];
+		oLink.overImg=document.createElement("img");
+		oLink.overImg.src="images/aimg.jpg";
+		oLink.outImg=document.createElement("img");
+		oLink.outImg.src="images/aimgtext.jpg";
+		oLink.clickImg=document.createElement("img");
+		oLink.clickImg.src="images/aimgon.jpg";
+		oLink.onmouseover=function()
+		{
+			oImg.src=oLink.overImg.src;
+		}
+		oLink.onclick=function()
+		{
+			oImg.src=oLink.clickImg.src;
+			return false;
+		}
+		oLink.onmouseout=function()
+		{
+			oImg.src=oLink.outImg.src;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*var tz1=(function tz(day)  //day 天数
+		{
+			if(day==10)
+				return 1;   //桃子的数量
+			return (tz(day+1)+1)*2;
+		});//函数定义转为函数表达式
+		var t=tz1;
+		tz1=null;
+		alert(t(1));*/
+		//1 1 2 3 5 8 13.....
+		function nums(n){
+			if(n==1 || n==2){
+				return 1;
+			}
+			return nums(n-1)+nums(n-2);
+		}
+		alert(nums(7))
+	</script>
+</body>
+</html>

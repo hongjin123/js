@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div
+		{
+			padding:40px;
+		}
+		#one
+		{
+			background: red;
+		}
+		#two
+		{
+			background: green;
+		}
+		#three
+		{
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="one">
+		<div id="two">
+			<div id="three">aaaa</div>
+		</div>
+	</div>
+	<script>
+		 var objone=document.getElementById("one");
+		 var objtwo=document.getElementById("two");
+		 var objthree=document.getElementById("three");
+		 function fn()
+		 {
+		 	alert(this.id);
+		 }
+		 objone.addEventListener("click",fn,true);
+		/* objtwo.addEventListener("click",fn,true);
+		 objthree.addEventListener("click",fn,true);*/
+	</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+  <p class="aa bb cc"></p>
+  <p class="aa"></p>
+  <div class="aa"></div>
+	<script>
+		//判断元素上是否有指定的类存在
+		function hasClass(obj,className)
+		{
+			var classNames=obj.className.split(/\s+/); //以空格进行拆分
+			var pos=-1;
+			for(var i=0,len=classNames.length;i<len;i++){
+				if(classNames[i]==className)
+				{
+					pos=i;
+					break;
+				}
+			}
+			return pos;
+		}
+		//addClass
+		//判断添加的类是否存在 如果不存在（-1） 添加进来
+		function addClass(obj,className)
+		{
+			var classArray=obj.className.split(/\s+/); //以空格进行拆分
+			if(hasClass(obj,className)==-1)
+			{
+				classArray.push(className);
+				obj.className=classArray.join(" ");
+			}
+			return obj.className;
+
+		}
+ 		objp=document.getElementsByTagName("p")[0];
+ 		alert(addClass(objp,"aaa"));
+
+ 		function removeClass(obj,className)
+		{
+			var classArray=obj.className.split(/\s+/); //以空格进行拆分
+			var pos=hasClass(obj,className);
+			if(pos!=-1)
+			{
+				classArray.splice(pos,1);
+				obj.className=classArray.join(" ");
+			}
+			return obj.className;
+
+		}
+		alert(removeClass(objp,"aaa"));
+
+		function getElementsByClassName(tagName,className)
+		{
+			var elements=document.getElementsByTagName(tagName);
+			var arr=[];
+			for(var i=0;i<elements.length;i++)
+			{
+				if(hasClass(elements[i],className)!=-1)
+				{
+					arr.push(elements[i]);
+				}
+			}
+			return arr;
+		}
+		alert(getElementsByClassName("*","aa").length);
+	</script>
+
+</body>
+</html>

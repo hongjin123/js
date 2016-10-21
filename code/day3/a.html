@@ -1,0 +1,56 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	   div
+	   {
+	   	 border-radius: 50%;
+	   	 position:absolute;
+	   	 top:10px;
+	   }
+	</style>
+</head>
+<body>
+   <div></div>
+	<script>
+		var a=new Object;
+		var b={};
+		var c={
+			"name":"张三",
+			"age":18,
+			show:function()
+			{
+				return this.name;
+			}
+
+		}
+		
+       // alert(c.show());
+        var ball={
+        	width:50,
+        	height:50,
+        	color:"red",
+        	v:5,
+        	a:2
+        }
+        var objdiv=document.getElementsByTagName("div")[0];
+        objdiv.style.width=ball.width+"px";
+        objdiv.style.height=ball.height+"px";
+        objdiv.style.background=ball.color;
+        setInterval(function()
+        {
+        	objdiv.style.top=objdiv.offsetTop+ball.v+"px";
+        	ball.v+=ball.a;
+        	console.log(ball.v);
+        	if(objdiv.offsetTop>300)
+        	{
+        		ball.v=-0.85*ball.v;
+        		
+        	}
+
+        },30)
+	</script>
+</body>
+</html>

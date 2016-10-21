@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#my
+		{
+			width:100px;
+			height:100px;
+			background: #ccc;
+			position:absolute;
+			top:10px;
+			left:10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="my">abc</div>
+	<script type="text/javascript">
+	function Drag(id){
+		this.objmy=document.getElementById(id);
+	
+		this.ex=0;
+		this.ey=0;
+		this.disx=0;
+		this.disy=0;
+		var that=this;
+        
+		this.objmy.onmousedown=function(ev){
+			e=ev||event;
+		    that.ex=e.clientX;
+		    that.ey=e.clientY;
+		    that.disx=that.ex-that.objmy.offsetLeft;
+		    that.disy=that.ey-that.objmy.offsetTop;
+		    that.mousedown();
+		}
+	}
+		
+		Drag.prototype.mousedown=function(ev)
+		{
+			
+		    var  _this=this;
+		    document.onmousemove=function(e)
+		    {
+		    	_this.mousemove(e);
+		    }
+		    document.onmouseup=function(e){
+		    	_this.mouseup(e);
+		    }
+		}
+
+		Drag.prototype.mousemove=function(ev)  //防止移动过快脱离
+		    {
+
+		    	e=ev||event;
+		    	console.log(e);
+		    	this.objmy.style.left=e.clientX-this.disx+"px";
+		    	console.log(this.objmy.style.left);
+		    	this.objmy.style.top=e.clientY-this.disy+"px";
+		    }
+		    Drag.prototype.mouseup=function()  
+		    {
+		    	
+		    	document.onmousemove=null;
+		    }
+		    new Drag("my");
+	</script>
+</body>
+</html>

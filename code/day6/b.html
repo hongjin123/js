@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    <input type="text" id="txt1" value="please input" autofocus>
+	<input type="text" id="txt" value="please input">
+	<script>
+		var oTxt=document.getElementById("txt");
+		oTxt.onfocus=function()
+		{
+			if(this.value=="please input")
+			this.value="";
+		}
+		oTxt.onblur=function()
+		{
+			alert(this.value);
+		}
+	</script>
+</body>
+</html>

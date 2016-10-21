@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	#my1
+	{
+		width:100px;
+		height:100px;
+		background: #ccc;
+	}
+	</style>
+</head>
+<body>
+	<div id="my" style="width:100px;height:100px;padding:10px;background:#ccc;border:1px solid red"></div>
+	<div id="my1"></div>
+	<script>
+		var obj=document.getElementById("my");
+		var obj1=document.getElementById("my1");
+		//alert(obj.style.width); //样式宽度
+		//alert(obj.clientWidth); //可视区宽度  +padding
+		//alert(obj.offsetWidth); //占位宽度 +padding +border
+		window.onresize=function() //窗口改变大小时发生
+		{
+		var width=document.documentElement.clientWidth || document.body.clientWidth;
+		var height=document.documentElement.clientHeight|| document.body.clientHeight;
+		document.title=width+","+height;
+		}
+
+        alert(getComputedStyle(obj1,null)["width"]);
+       
+        function getStyle(obj,prop)
+        {
+        	if(obj.currentStyle)
+        	{
+        		return obj.currentStyle[prop];
+        	}
+        	else
+        	{
+        		return getComputedStyle(obj,null)[prop];
+        	}
+        }
+        alert(getStyle(obj1,"background-color"));
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    
+	<script>
+	document.body.paddingLeft="50px";
+
+	    var a=20;
+	    var json={
+	    	a:10,
+	    	b:function()
+	    	{
+	    	
+	    		alert(this.a);
+	    	}
+	    }
+		function aaa(f)
+		{
+			f();  //this   window
+		}
+		//aaa(json.b);
+		json.b();
+
+	</script>
+</body>
+</html>

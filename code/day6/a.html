@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">click</button>
+	<script>
+		//event
+		function getEvent(ev)
+		{
+			return ev||window.event;// ie event other ev
+		}
+		var objBtn=document.getElementById("btn");
+		document.onmousemove=function(ev)
+		{
+			var e=getEvent(ev);
+			document.title=e.clientX+","+e.clientY;
+
+			//可视区坐标
+		}
+		
+	</script>
+	
+
+</body>
+</html>

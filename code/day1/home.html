@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li><input type="checkbox">abc1</li>
+		<li><input type="checkbox">abc2</li>
+		<li><input type="checkbox">abc3</li>
+		<li><input type="checkbox">abc4</li>
+		<li><input type="checkbox">abc5</li>
+		<li><input type="checkbox">abc6</li>
+		<li><input type="checkbox">abc7</li>
+		<li><input type="checkbox">abc8</li>
+		<li><input type="checkbox">abc9</li>
+		<li><input type="checkbox">abc10</li>
+	</ul>
+	<button id="btn">删除</button>
+	<script>	
+			var objbtn=document.getElementById("btn");
+			var inputs=document.getElementsByTagName("input");
+			objbtn.onclick=function()
+			{
+				for(var i=inputs.length-1;i>=0;i--)
+				{
+					if(inputs[i].checked)
+					{
+						inputs[i].parentNode.parentNode.removeChild(inputs[i].parentNode);
+					}
+				}
+			}
+	</script>
+
+</body>
+</html>

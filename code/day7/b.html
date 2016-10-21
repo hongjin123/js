@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<a href="http://www.baidu.com" id="link">baidu</a>
+	<script>
+		var link=document.getElementById("link");
+		link.onclick=function(ev)
+		{
+			prevent(ev)
+		}
+		function prevent(ev)
+		{
+			if(ev){//chrome ff....
+			ev.preventDefault();
+		    }
+		    else       {//ie		
+		    	window.event.returnValue=false;
+		    }
+		}
+		document.oncontextmenu=function(ev)
+		{
+			alert("不能使用右键");
+			prevent(ev);
+		}
+	</script>
+</body>
+</html>

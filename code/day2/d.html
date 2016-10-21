@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	</title>
+	<style>
+	   .aa
+	   {
+	   	  color:red;
+	   }
+	   .underline
+	   {
+	   	text-decoration: underline;
+
+	   }
+	</style>
+
+</head>
+<body>
+	<P class="aa     underline bb">aaaa</P>
+	<h3 class="underline">hello</h3>
+	<script>
+
+	//判断元素上是否有指定的类存在
+		function hasClass(obj,className)
+		{
+			var classNames=obj.className.split(/\s+/); //以空格进行拆分
+			var pos=-1;
+			for(var i=0,len=classNames.length;i<len;i++){
+				if(classNames[i]==className)
+				{
+					pos=i;
+					break;
+				}
+			}
+			return pos;
+		}
+		objp=document.getElementsByTagName("p")[0];
+		alert(hasClass(objp,"sun"));
+	</script>
+</body>
+</html>

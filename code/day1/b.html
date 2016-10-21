@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<Div id="one">
+		<p>abc</p>
+	</Div>
+	<script>
+		var objBody=document.body;
+		var list=objBody.childNodes;
+		//找到第一个元素节点 考虑兼容
+		//标准下 firstElementChild找到第一个元素
+		 /* if( objBody.firstElementChild)
+		{
+		 	first=objBody.firstElementChild;
+		 }
+		 else
+		 {
+		 	first=objBody.firstChild;
+		 }*/
+		 //找到第一个子节点元素
+		 first=objBody.firstElementChild || objBody.firstChild;
+		 alert(first);
+		
+	</script>
+
+</body>
+</html>

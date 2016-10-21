@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="my">aaa</button>
+	<script>
+	window.onload=function()
+	{
+		var d=document.getElementById("my");
+		var did=d.id;
+		d.onclick=function()
+		{
+			alert(did);
+		}
+		d=null;
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p id="my" onclick="get()">abc</p>
+	<div id="mydiv" onclick="get()">def</div>
+	<input type="text" id="text" value="helloabc" onclick="get()">
+	<script>
+	//改变this指向
+	    //var objP=document.getElementById("my");
+	    function get(ev)
+	    {
+	    	var e=ev||event;
+	    	var t=e.target||e.srcElement;
+	    	
+	    //getContent.call(t,t.id,t.tagName);
+	    getContent.apply(t,[t.id,t.tagName]);
+	    }//this指向objP;
+		function getContent(rid,rtag)
+		{
+			alert("id为"+rid+"的"+rtag+"元素的内容是"+(this.innerHTML||this.value)); //window
+		}
+	</script>
+</body>
+</html>

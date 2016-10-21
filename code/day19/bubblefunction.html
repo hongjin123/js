@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	  
+		function bubble(data,j)
+		{
+        for(var j=0;j<data.length-1;j++){  //比较的轮数
+			for(var i=0;i<data.length-1-j;i++){  //每两个无序数比较
+					if(data[i]>data[i+1]){
+						tem=data[i];
+						data[i]=data[i+1];
+						data[i+1]=tem;
+
+					}
+			}
+		}
+		return data;
+	}
+	</script>
+</body>
+</html>

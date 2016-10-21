@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	   var age="sdadf";
+	   try
+	   {
+			if(isNaN(age)){
+				throw new Error("年龄类型一定是数字");
+			}
+			else if(age<0 || age>150){
+				throw new Error("年龄小于0或大于150");
+			}
+
+	    }
+	    catch(exception)
+	    {
+	    	alert(exception.message);
+	    	try
+	    	{
+	    		if(age>120){
+	    			throw new Error("年龄大于120");
+	    		}
+	    	}
+	    	catch(e){
+	    		alert(e.message);
+	    	}
+	    }
+	    finally{
+		alert("over");
+	 }
+	 function abc()
+	 {
+	 	return 1;
+	 }
+	 alert(typeof abc());
+	 var foo = {
+      bar: function () {
+          return this.baz;
+      },
+      baz: 1
+  };
+  alert(typeof foo.bar());
+	</script>
+</body>
+</html>

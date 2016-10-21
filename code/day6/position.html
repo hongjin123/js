@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body style="height:3000px;">
+<script>
+	document.onmousemove=function(ev)
+	{
+		var e=ev||event;
+		var p=getPos(e);
+		//document.title=e.pageX+","+e.pageY; //pageX ie6,ie7,ie8 no support clientx scrollTop
+		document.title=p.x+","+p.y;
+	}
+	function getPos(ev)
+	{
+		var e=ev||event;
+		var x1=e.pageX;
+		var y1=e.pageY;
+		var pos={x:0,y:0};
+		pos.x=x1;
+		pos.y=y1;
+		if(x1===undefined)
+		{
+			pos.x=e.clientX+(document.documentElement.scrollLeft||document.body.scrollLeft)
+		}
+		if(y1===undefined)
+		{
+			pos.y=e.clientY+(document.documentElement.scrollTop||document.body.scrollTop)
+		}
+		return pos;
+	}
+</script>
+	
+</body>
+</html>

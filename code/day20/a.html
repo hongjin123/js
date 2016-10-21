@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+		//快速排序
+
+		data=[10,50,130,40,170,20,90,60];
+
+		function quick(data,left,right){
+			
+
+		}
+		function quickSort(data,left,right){
+			
+			var index=(function(data,left,right){
+				var i=left;
+			var j=right;
+			var mid=data[Math.floor((left+right)/2)];
+			while(i<=j){
+				while(data[i]<mid)
+				{
+					i++;
+				}
+				while(data[j]>mid){
+					j--;
+				}
+				if(i<=j){
+					 tem=data[i];
+					data[i]=data[j];
+					  data[j]=tem;
+					  i++;
+					  j--;
+				}
+			}
+			return i;
+		})(data,left,right);
+		    
+			if(left<index-1){
+				
+				quickSort(data,left,index-1);
+			}
+			if(index<right){
+				
+				quickSort(data,index,right);
+			}
+        
+			return data;
+		}
+		console.log(quickSort(data,0,data.length-1));
+	</script>
+</body>
+</html>

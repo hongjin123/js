@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	</title>
+</head>
+<body>
+	<p id="my">我是<%=school%>学校,学的是<%=zy%></p>
+
+	<script>	
+	 		function reader(objContent,obj){
+	 				
+	 				return objContent.replace(/<%=(\w+)%>/g,function(a,b){
+	 					//alert(a+","+b);
+	 					return obj[b]?obj[b]:"";
+	 				})
+	 		}
+	 		var objMy=document.getElementById("my");
+	 		objMy.innerHTML=reader(objMy.innerText,{
+	 			school:"bw",
+	 			zy:"qd"
+	 		});
+
+	</script>
+</body>
+</html>

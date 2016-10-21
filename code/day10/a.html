@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<p id="my" class="aa bbb cc">afdasf</p>
+	<script>
+		function halClass(obj,name){
+	var r=new RegExp('(^|\\s+)'+name+'(\\s+|$)');
+	var str=obj.className;
+	var arr=str.match(r);
+
+	if(arr){
+		return arr;
+	}
+
+
+	return null;
+}
+   function removeClass(obj,name)
+   {
+   	   if(halClass(obj,name)){
+
+   	   	obj.className=obj.className.replace(name," ");
+   	   }
+   }
+   //addClass;
+   function addClass(obj,name)
+   {
+   	   if(!halClass(obj,name)){
+
+   	   	obj.className+=" "+name;
+   	   }
+   }
+   var objMy=document.getElementById("my");
+   removeClass(objMy,"bb");
+   addClass(objMy,"kkk");
+   alert(objMy.className);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul{padding:0;margin:0;list-style: none; width:1000px;margin:0 auto;}
+		li{
+			width:240px;float:left;
+			
+		}
+		#btn
+		{
+			position: fixed;
+			bottom: 0;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<button id="btn">btn</button>
+	<script>
+		var objUl=document.getElementsByTagName("ul")[0];
+		var lis=document.getElementsByTagName("li");
+		var objBtn=document.getElementById("btn");
+		var flag=true;
+		var t1=0;
+		var data=['a','b','c','d'];
+		function getMin()
+		{
+			var h=lis[0].offsetHeight;
+			var index=0;
+			
+			for(var i=1;i<lis.length;i++){
+				if(h>lis[i].offsetHeight){
+					h=lis[i].offsetHeight;
+					index=i;
+				}
+			}
+			return index;
+		}
+		objBtn.onclick=function()
+		{
+		if(flag)
+		{
+			for(var i=0;i<lis.length;i++){
+				var t=new Image;
+				t.src="img/"+data[i]+".jpg";
+				t.style.width="240px";
+				lis[i].appendChild(t);
+		 	}
+         flag=false;
+		}
+		else
+		{
+			var index=getMin();
+			var t=new Image;
+			t.src="img/"+data[t1]+".jpg";
+			lis[index].appendChild(t);
+			t.style.width="240px";
+			if(t1<lis.length-1)
+			t1++;
+		    else
+		    {
+		    	t1=0;
+		    }
+
+
+		}
+	}
+
+	</script>
+
+</body>
+</html>

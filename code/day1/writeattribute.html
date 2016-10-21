@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" id="btn" value="clickme" data-count="0">	
+	<script>
+		objBtn=document.getElementById("btn");
+		objBtn.onclick=function()
+		{
+			count=this.getAttribute("data-count"); //获取属性
+			count++;
+			this.setAttribute("data-count",count);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{ margin: 0; padding: 0; list-style: none;}
+		div{ width: 35px; height: 20px; border: 1px solid #ccc ; margin: auto;margin-top: 40px}
+		p{ width:50px; height: 25px; margin-top: 20px;margin: auto; }
+		p span{ width: 25px;  height: 25px; display: block; float: left; text-align: center; line-height: 25px;margin: auto;}
+		#op{width: 0; height: 0; border: 5px solid transparent; border-top-color:#000; margin: auto;}
+
+		#uu{ width: 50px; display: none;margin: auto;}
+
+		ul li{ width:25px; height: 25px; padding-left: 9px; border:1px solid #000; line-height: 20px;}
+		ul li:hover{ background: #2b2}
+	</style>
+</head>
+<body>
+	<div><p><span id='sp1'>1</span><span id='op'></span></p></div>
+	<ul id='uu'>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+
+	</ul>
+	<script>
+		var wSp2=document.getElementById('op');
+
+		var wSp1=document.getElementById('sp1');
+
+		var oUl=document.getElementById('uu');
+
+		var oLi=oUl.getElementsByTagName('li');
+
+		wSp2.onclick=function(ev)
+
+		{
+			oUl.style.display='block';
+
+			for(var i=0;i<oLi.length;i++)
+
+			{
+				oLi[i].onclick=function()
+
+				{
+
+					wSp1.innerHTML=this.innerHTML;
+
+				}
+			}
+
+			stopBubble(ev);
+
+		}
+
+		function stopBubble(ev)
+		
+		{
+
+			if(ev.stopPropagation)
+			{
+				ev.stopPropagation();
+			}
+			else
+			{
+				ev.cancelBubble=true;
+			}
+		}
+		document.onclick=function()
+		{
+			oUl.style.display='none';
+		}
+	</script>
+</body>
+</html>

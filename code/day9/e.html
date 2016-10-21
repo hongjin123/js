@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var r=/a/;
+		alert(r instanceof RegExp);
+		function getQueryString(name){
+			//匹配析地址栏中的参数格式以^或&开头以$或&结尾中间以name=字符连接
+			var reg=new RegExp("(^|&)"+name+"=([^&]*)($|&)");
+			//获取地址栏中的所有参数并与正则表达式匹配
+			var arr=location.search.substr(1).match(reg);
+			if(arr){ //如果匹配返回参数的值
+				return decodeURI(arr[2]);
+			}
+			return null; //不匹配返回空值
+
+		}
+		alert(getQueryString("a"));
+		</script>
+</body>
+</html>

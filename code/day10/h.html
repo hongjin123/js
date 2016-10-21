@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		var a={name:"zs",age:18,tz:{name:"ls",age:16}};
+		function test()
+		{
+			test1();
+			function test1()
+			{ 
+			  with(a.tz){
+			   alert(name+","+age);
+			  }
+              //  a="bw1111111";
+			}
+		}
+		test();
+	</script>
+</body>
+</html>

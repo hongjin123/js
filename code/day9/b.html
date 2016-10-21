@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var str="bwabc bw abcbw abbwdsf";
+		var reg=/bw\b/g;  //匹配单词边界
+		//alert(str.replace(reg,""));
+       
+        var reg1=/(?:abc)\1/; //仅分组不能引用
+        alert(reg1.test("abcabc\1"));
+
+        var reg2=/(ab\d*?)/g;  //惰性匹配
+        alert("ab123123cccc1231abdcccccabcd".match(reg2));
+          
+	</script>
+</body>
+</html>

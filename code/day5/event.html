@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	div{
+		padding:50px;
+	}
+	#one
+	{
+		background: red;
+	}
+	#two
+	{
+		background: blue;
+	}
+	#three
+	{
+		background: yellow;
+	}
+
+	</style>
+</head>
+<body>
+	<div id="one">
+		<div id="two">
+			<div id="three">ccc</div>
+		</div>
+	</div>
+	<script>
+		function stopBubble(ev)
+		{
+			if(ev)
+			{
+				ev.stopPropagation();
+			}
+			else
+			{
+				//event
+				window.event.cancelBubble=true;
+			}
+		}
+		function handler(sune){
+			alert(this.id);
+			stopBubble(sune);
+		}
+		var objone=document.getElementById("one");
+		var objtwo=document.getElementById("two");
+		
+		//objthree.onclick=handler;
+		objtwo.onclick=handler;
+		objone.onclick=handler;
+
+
+	</script>
+</body>
+</html>

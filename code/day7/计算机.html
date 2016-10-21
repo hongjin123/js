@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*
+		{
+			font-size: 14px;
+			font-weight: bold;
+			color: blue;
+		}
+		#box
+		{
+			width: 200px;
+			height: 300px;
+			border: 1px solid red;
+			margin: 100px auto;
+			background: green;
+			box-shadow: 5px 5px 10px;
+		}
+		button
+		{
+			width: 40px;
+			height: 50px;
+			margin-top: 5px;
+			margin-left: 4px;
+		}
+		#txt
+		{
+			width: 198px;
+			height: 30px;
+			border: 1px solid red;
+		}
+		#clean
+		{
+			width: 192px;
+			height: 40px;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="box">
+		<input type="text" id='txt'>
+		<button value="1">1</button>
+		<button value="2">2</button>
+		<button value="3">3</button>
+		<button value='+'>+</button>
+		<button value="4">4</button>
+		<button value="5">5</button>
+		<button value="6">6</button>
+		<button value='-'>-</button>
+		<button value="7">7</button>
+		<button value="8">8</button>
+		<button value="9">9</button>
+		<button value='*'>*</button>
+		<button value="0">0</button>
+		<button value=".">.</button>
+		<button id='two'>=</button>
+		<button value='/'>/</button>
+		<button id='clean'>清除</button>
+	</div>
+
+	<script>
+
+	var box=document.getElementById('box'),
+		txt=document.getElementById('txt'),
+		two=document.getElementById('two');
+		clean=document.getElementById('clean');
+
+	box.onclick=function(ev)
+	{
+		e=ev || event;
+		w=e.target || e.srcElement;
+		if(w.tagName=='BUTTON')
+		{
+			txt.value+=w.value;
+		}
+	}
+
+	two.onclick=function()
+	{
+		txt.value=eval(txt.value);
+	}
+
+	clean.onclick=function()
+	{
+		txt.value='';
+	}
+
+	</script>
+	
+</body>
+</html>

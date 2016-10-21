@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<Div id="one">
+		<p>abc</p>
+	</Div>
+	<script>
+		var objBody=document.body;
+		 //document.getElementsByTagName("body")[0]
+		console.log(objBody.childNodes);//找body元素下子节点的个数
+		for(var i=0;i<objBody.childNodes.length;i++){ 遍历的子节点
+			if(objBody.childNodes[i].nodeType==1){  //判断节点类型为元素
+				//元素类型 nodeValue null  nodeName TagName
+				alert(objBody.childNodes[i].nodeName); //null  nodeName tagName
+			}
+		}
+	</script>
+
+</body>
+</html>

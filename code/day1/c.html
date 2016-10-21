@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p id="myp" data-ls="sls" class="abc">javascript<span>asdfasdf</span></p>
+	<script type="text/javascript">
+		obj=document.getElementsByTagName("body")[0];
+		child=obj.childNodes;
+		/*last=child[1];
+		alert(last.previousSibling.nodeValue);
+		alert(last.firstChild.nodeValue);*/
+		alert(child.length);
+		node=child[0];
+		while(node)   遍历子节点
+		{   //if(node.nodeType==1)
+			//alert(node.nodeName);
+			node=node.nextSibling;找到下一个兄弟节点
+		}
+		node=obj.firstElementChild; //找到第一个元素节点
+		objSpan=node.firstElementChild;
+		alert(objSpan.nodeName);
+		objSpan.onclick=function()
+		{
+			this.innerHTML="hello";
+			this.parentNode.removeAttribute("data-ls"); //删除属性
+			this.parentNode.style.color="#f00";
+			this.parentNode.removeChild(this);
+		}
+
+	</script>
+</body>
+</html>

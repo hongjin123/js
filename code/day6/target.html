@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="my">
+	<button value="1">1</button>
+	<button value="2">2</button>
+	<button value="3">3</button>
+	<button value="4">4</button>
+	<button value="5">5</button>
+	<button value="6">6</button>
+	<button value="7">7</button>
+	<button value="8">8</button>
+	<button value="9">9</button>
+	<button value="10">10</button>
+</div>
+<script>
+
+   
+	var objdiv=document.getElementById("my");
+	objdiv.onclick=function(ev)
+	{
+		var e=ev||event;
+		var target=e.target || e.srcElement;
+		if(target.tagName=="BUTTON"){
+		alert(target.value);
+	}
+
+	}
+</script>
+</body>
+</html>

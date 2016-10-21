@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul
+		{
+			padding:0;margin:0;list-style:none;display: none;
+			position:absolute;
+			border:1px solid red;
+			background: #ccc;
+		}
+		ul li:hover
+		{
+			background:red;
+		}
+	</style>
+</head>
+<body style="height:2000px;">
+	<select name="" id="">
+		<option value="">1</option>
+		<option value="">2</option>
+		<option value="">3</option>
+		<option value="">4</option>
+		<option value="">5</option>
+		<option value="">6</option>
+		<option value="">7</option>
+		<option value="">8</option>
+		<option value="">9</option>
+		<option value="">10</option>
+	</select>
+	<ul id="menu">
+		<li class="red">red</li>
+		<li class="green">green</li>
+		<li class="blue">blue</li>
+	</ul>
+	<script>
+
+	 var oUl=document.getElementById("menu");
+	 var lis=document.getElementsByTagName("li");
+	  function prevent(ev)
+		{
+			if(ev){//chrome ff....
+			ev.preventDefault();
+		    }
+		    else       {//ie		
+		    	window.event.returnValue=false;
+		    }
+		}
+		document.oncontextmenu=function(ev)
+		{
+			e=ev||event;
+			
+
+			oUl.style.display="block";
+			oUl.style.left=getPos(e).x+"px";
+			oUl.style.top=getPos(e).y+"px";
+			prevent(e);
+		} 
+		function getPos(ev)
+	   {
+		var e=ev||event;
+		var x1=e.pageX;
+		var y1=e.pageY;
+		var pos={x:0,y:0};
+		pos.x=x1;
+		pos.y=y1;
+		if(x1===undefined)
+		{
+			pos.x=e.clientX+(document.documentElement.scrollLeft||document.body.scrollLeft)
+		}
+		if(y1===undefined)
+		{
+			pos.y=e.clientY+(document.documentElement.scrollTop||document.body.scrollTop)
+		}
+		return pos;
+	}
+		oUl.onclick=function(ev)
+		{
+			var  e=ev||event;
+			var t=e.target || e.srcElement;
+			switch(t.className)
+			{
+				case 'red':
+				   document.body.style.background="red";break;
+				case 'green':
+				   document.body.style.background="green";break;
+				case 'blue':
+				   document.body.style.background="blue";break;
+			}
+			this.style.display="none";
+		}
+	</script>
+</body>
+</html>

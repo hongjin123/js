@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	     obj1={
+	     	a:1,
+	     	b:"abc",
+	     	c:25.5
+	     }
+	     obj2={
+	     	width:"100px",
+	     	opacity:0.5,
+	     	height:"200px"
+	     }
+		function json(obj){
+			for(var t in obj)
+			{
+				alert(obj[t]);
+			}
+		}
+		json(obj2);
+	</script>
+</body>
+</html>

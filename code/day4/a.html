@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div
+		{
+			padding:50px 40px;
+		}
+		#div1
+		{
+			background: red;
+		}
+		#div2
+		{
+			background: green;
+			position:relative;
+
+		}
+		#div3
+		{
+			background: blue;
+			position:relative;
+		}
+
+	</style>
+
+</head>
+<body>
+	<div id="div1">
+		<div id="div2">
+			<div id="div3">aaa</div>
+		</div>
+	</div>
+	<script>
+		function getPos(obj)
+		{
+			var pos={
+				x:0,
+				y:0
+			}
+			while(obj)
+			{
+				pos.x+=obj.offsetLeft;
+				pos.y+=obj.offsetTop;
+				obj=obj.offsetParent; //得到当前元素的定位父级
+			}
+			return pos;
+
+		}
+		objdiv=document.getElementById("div3");
+		alert(getPos(objdiv).x+","+getPos(objdiv).y);
+	</script>
+</body>
+</html>

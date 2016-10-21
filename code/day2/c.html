@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    <ul id="mylist">
+    	<li>abc1</li>
+    	<li>abc1</li>
+    	<li>abc1</li>
+    	<li>abc1</li>
+    </ul>
+	<script>
+ 		var mylist=document.getElementById("mylist");
+ 		var txt=document.createTextNode("eeee");
+ 		var tbw=document.createTextNode("bw");
+ 		mylist.appendChild(txt);
+ 		alert(mylist.childNodes.length);
+ 		mylist.replaceChild(tbw,txt);
+ 		deleteText(mylist);
+ 		alert(mylist.childNodes.length);
+		function deleteText(OElement)
+		{
+			list=OElement.childNodes;
+			for(var i=0;i<list.length;i++)
+			{
+			    if(list[i].nodeType==3 )// 3 文本节点
+			    {
+			    	list[i].parentNode.removeChild(list[i]);
+			    }
+			}
+		}
+	</script>
+</body>
+</html>

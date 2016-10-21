@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var data=[1,3,5,7,9,0];
+		function show(n)
+		{
+			console.log(n);
+		}
+		function inc(n)
+		{
+			console.log(n+1);
+		}
+		function each(func,array)
+		{
+			for(var i=0;i<array.length;i++){
+
+				func(array[i]);
+			}
+		}
+         each(inc,data);
+         alert(data);
+		//each(show,data);
+	</script>
+</body>
+</html>

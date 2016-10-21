@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var str="hello-world-javascript";
+		var reg=/-(\w)/g;
+		alert(str.replace(reg,function()  //执行的次数和匹配的次数相同
+		{
+             return arguments[1].toUpperCase()
+		}));
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    <script>
+    alert(parseInt("a124ab"));
+	   try
+	   {
+		/*var objMy=document.getElementById("my");
+		alert(objMy.innerHTML);*/
+		 var age=1000;
+		 if(age<0 || age>120){
+		 	throw new Error("年龄非法");
+		 }
+
+	    }
+	    catch(exception)
+	    {
+	    	/*alert(exception.message);  //name message
+	    	if(exception instanceof TypeError)
+	    	alert("类型错误类型");*/
+	    }
+	    finally{
+		alert("over");
+	 }
+	</script>
+</body>
+</html>

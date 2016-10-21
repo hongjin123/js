@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+	</script>
+	<form action="do.php" method="post" id="myform">
+		<input type="text" id="username"><Span></Span><br />
+		<input type="password" id="password"><Span></Span><br />
+		<input type="password" id="password1"><Span></Span><br />
+		<input type="submit" value="提交" id="submit" />
+	</form>
+	<script>
+		var objForm=document.getElementById("myform");
+		var objUser=document.getElementById("username");
+		var objPass=document.getElementById("password");
+		var objPass1=document.getElementById("password1");
+		var inputs=document.getElementsByTagName("input");
+		var spans=document.getElementsByTagName("span");
+		objUser.onblur=function(){
+			var flag=true;
+			var  str="";
+			if(this.value==""){
+				flag=false;
+				str="用户名不能为空";
+			}
+			else if(this.value.length<3 || this.value.length>12){
+				str="用户名长度必修是3-12位";
+				flag=false;
+			}
+	      spans[0].style.color="red";
+			if(!flag){
+			
+				spans[0].innerHTML=str;
+			}
+			else
+			{
+				spans[0].innerHTML="";
+			}
+		}
+		objForm.onsubmit=function(){
+			
+			/*if(objUser.value==""){
+			alert("用户名不能为空!!!!");
+			return false;
+			} else 	if(!(objUser.value.length>=3 && objUser.value.length<=12)){
+				alert("用户名长度必修是3-12位");
+				return false;
+			}
+           
+			if(objPass.value=="" || objPass1.value==""){
+				alert("密码不能为空");
+				return false;
+			} else	if(objPass.value!=objPass1.value)
+			{
+				alert("两次密码不等");
+				return false;
+			}*/
+			var str="";
+			var info=["用户名","密码","确认密码"];
+			var flag=true;
+			for(var i=0;i<inputs.length;i++){
+				if(inputs[i].value==""){
+					str+=info[i]+" ";
+					flag=false;
+				}
+			}
+			if(!flag){
+				alert(str+"不能为空");
+				return false;
+			}
+            if(!(objUser.value.length>=3 && objUser.value.length<=12)){
+				alert("用户名长度必修是3-12位");
+				return false;
+			}
+			if(objPass.value!=objPass1.value)
+			{
+				alert("两次密码不等");
+				return false;
+			}
+
+			
+		
+
+		}
+	</script>
+</body>
+</html>

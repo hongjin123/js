@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+
+</head>
+<body>
+	<input type="text" id="txt" /><span>弱</span><span>中</span><span>强</span>
+	<script>
+		var oTxt=document.getElementById("txt");
+		var spans=document.getElementsByTagName("span");
+		oTxt.onkeyup=function()
+		{
+			for(var i=0;i<spans.length;i++){
+			spans[i].style.background="white";
+		    }
+			var reg=/[0-9]/;
+			var strong=0;
+			if(reg.test(oTxt.value))
+			{
+				strong++;
+			}
+			reg=/[a-zA-Z]/;
+			if(reg.test(oTxt.value))
+			{
+				strong++;
+			}
+			reg=/[-_]/;
+			if(reg.test(oTxt.value))
+			{
+				strong++;
+			}
+			switch(strong)
+			{
+				case 1:
+				  spans[0].style.background="red";break;
+				 case 2:
+				  spans[1].style.background="yellow";break; 
+				  case 3:
+				  spans[2].style.background="blue";break;
+
+			}
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	var add=(function test()
+	{
+		var a=1; //局部变量
+		return function()
+		{
+			a++;
+		   alert(a);
+	    }
+	})();  //执行完以后add指向匿名函数
+	
+	/*var t=test(); 
+	t(); //此时 a 没有清除 因为内部函数访问  a=2;
+	t(); //a=3;
+	t(); //a=4*/
+    add();   //如果函数表达时没有立即运行()只是返回匿名函数并没有调用
+    add();
+    add();
+</script>
+</body>
+</html>

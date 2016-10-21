@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	 	var data=[1,5,7,8,0];
+		function each(func,array)
+		{
+			for(var i=0;i<array.length;i++){
+
+				func(array[i]);
+			}
+		}
+		function addOne(t){
+			return t+1;
+		}
+		function power(t)
+		{
+			return t*t;
+		}
+		function map(func,array){
+			var temArray=[];
+			each(function(t)
+				{
+					temArray.push(func(t));	
+				},array);
+			return temArray;
+		}
+		alert(map(addOne,data));
+		alert(map(power,data));
+	</script>
+</body>
+</html>

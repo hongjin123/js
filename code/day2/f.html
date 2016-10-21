@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">添加文本框</button>
+	<script>
+		var objBtn=document.getElementById("btn");
+		objBtn.onclick=function()
+		{
+			var txt=document.createElement("input");
+			txt.type="text";
+			txt.onclick=function()
+			{
+				txt.parentNode.removeChild(txt);
+			}
+			document.body.appendChild(txt);
+		}
+	</script>
+
+	//作业 留言板 
+	
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		img
+		{
+			width:100px;
+		}
+		#selectImg 
+		{
+			width:1000px;
+		}
+		#selectImg div
+		{
+			float:left;
+			position: relative;
+		}
+		#selectImg div span
+		{
+			display:none;
+			position:absolute;
+			right:0;
+			top:0;
+			background: rgba(225,225,225,0.6);
+
+		}
+		#selectImg div:hover span{
+			display: block;
+		}
+		.clear
+		{
+			clear:both;
+		}
+	</style>
+</head>
+<body>
+	<table border="1" width="500">
+		<tr>
+			<td><input type="checkbox" class="selectAll" />全选/全不选</td>
+			<td>商品</td>
+			<td>单价</td>
+			<td>数量</td>
+			<td>小计</td>
+			<td>操作</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"  /></td>
+			<td>a<img src="img/1.jpg" /></td>
+			<td>3.5</td>
+			<td><span class="dec">&nbsp;</span><input type="text" value="1" size="1" /><span class="inc">+</span></td>
+			<td>3.5</td>
+			<td><button>del</button></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"  /></td>
+			<td>b<img src="img/2.jpg" /></td>
+			<td>56.9</td>
+			<td><span class="dec">&nbsp;</span><input type="text" value="1" size="1"  /><span class="inc">+</span></td>
+			<td>56.9</td>
+			<td><button>del</button></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" /></td>
+			<td>c<img src="img/3.jpg" /></td>
+			<td>200</td>
+			<td><span class="dec">&nbsp;</span><input type="text" value="1"  size="1"  /><span class="inc">+</span></td>
+			<td>200</td>
+			<td><button>del</button></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox"  /></td>
+			<td>d<img src="img/4.jpg" /></td>
+			<td>100.7</td>
+			<td><span class="dec">&nbsp;</span><input type="text" value="1"  size="1" /><span class="inc">+</span></td>
+			<td>100.7</td>
+			<td><button>del</button></td>
+		</tr>
+	</table>
+	<div id="selectImg"></div>
+	<div id="count" class="clear">0</div>
+	<div><span id="price">0</span>元</div>
+	<script>
+		var inputs=document.getElementsByTagName("input");
+		var objCount=document.getElementById("count");
+		var objPrice=document.getElementById("price");
+		var rows=document.getElementsByTagName("tr");
+		var objSelectImg=document.getElementById("selectImg");
+		
+		for(var i=1;i<rows.length;i++){
+			var txt=rows[i].getElementsByTagName("input")[1];
+			txt.disabled=true;  //不可用  通常是灰色
+ 			//txt.readOnly=true; //只读
+			
+
+			
+		}
+		//必须用事件委托 ，因为是为动态产生的对象添加事件
+		objSelectImg.onclick=function(ev){
+			var e=ev||event;
+			var t=e.target||e.srcElement;  //span
+			if(t.id=="del"){
+			var input=rows[parseInt(t.getAttribute("index"))].getElementsByTagName("input")[0];
+			input.checked=false;
+			input.onclick(); //调用input的click方法
+}
+}
+		
+		function getTotal(){
+		  var html='';
+       	  var c=0;
+       	  var p=0;
+       	  for(var i=1;i<rows.length;i++){
+       	  	if(rows[i].getElementsByTagName("input")[0].checked){
+       	  	c+=parseInt(rows[i].getElementsByTagName("input")[1].value);
+       	  	html+="<div><img src='"+rows[i].getElementsByTagName("img")[0].src+"' /><span id='del' index='"+i+"'>取消商品</span></div>";
+       	    p+=parseFloat(rows[i].cells[4].innerHTML);
+       	   }
+       	  }
+       	  objSelectImg.innerHTML=html;
+       	  objCount.innerHTML=c;
+       	  objPrice.innerHTML=p.toFixed(2);
+       }
+		inputs[0].onclick=function(){
+			for(var i=1;i<inputs.length;i++){
+				inputs[i].checked=this.checked;
+			}
+			getTotal();
+		}
+		
+		for(var i=1;i<inputs.length;i++){
+			inputs[i].onclick=function(){
+				var flag=true;
+				for(var j=1;j<inputs.length;j++)
+				{
+					if(!inputs[j].checked){
+						flag=false;
+					}
+				}
+				inputs[0].checked=flag;
+				getTotal();
+			}
+		}
+		for(var i=1;i<rows.length;i++){
+			rows[i].onclick=function(ev){
+				var e=ev||event;
+				var target=e.target||e.srcElement;
+				var price=parseFloat(this.cells[2].innerHTML);
+				var txt=this.getElementsByTagName("input")[1]
+				if(target.className=="inc"){
+					txt.value=parseInt(txt.value)+1;
+
+				}
+				if(target.className=="dec"){
+					if(txt.value>1){
+					txt.value=parseInt(txt.value)-1;
+				    }
+				    else
+				    {
+				    	this.getElementsByTagName("span")[0].innerHTML="&nbsp;"
+				    }
+
+				}
+				if(target.tagName=="BUTTON"){
+					this.parentNode.removeChild(this);
+				}
+				if(txt.value>1){
+					this.getElementsByTagName("span")[0].innerHTML="-"
+				}
+				this.cells[4].innerHTML=parseInt(txt.value)*price;
+				getTotal();
+			}
+		}
+       
+	</script>
+</body>
+</html>

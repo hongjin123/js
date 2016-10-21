@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<input type="text" id="txt" />
+<script>
+   var oTxt = document.getElementById("txt");
+	var reg=/^\w+([-\.]\w+)*@\w+([-\.]\w+)*\.\w+([-\.]\w+)*$/; //email
+	var reg1=/^[a-zA-Z]+:\/\/\S+$/  //url
+	oTxt.onblur=function(){
+	if(reg1.test(oTxt.value)){
+		alert("您输入的是"+oTxt.value);
+	}
+	else
+	{
+		alert("输入的非法");
+	}
+}
+</script>
+   	
+   
+</body>
+</html>

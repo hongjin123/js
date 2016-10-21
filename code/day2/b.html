@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    <p>abc</p>
+    <p>abc2</p>
+    <p>abc3</p>
+	<script>
+		function insertAfter(newNode,target)
+		{
+			if(target.parentNode.lastChild==target){
+			//节点判断目标是否是父节点最后一个  
+				target.parentNode.appendChild(newNode);
+			}
+			else
+			{
+				target.parentNode.insertBefore(newNode,target.nextSibling);
+			}
+		}
+		var newp=document.createElement("p");
+		var ps=document.getElementsByTagName("p");
+		newp.innerHTML="abc5";
+		insertAfter(newp,ps[ps.length-2]);
+	</script>
+</body>
+</html>

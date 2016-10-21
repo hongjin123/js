@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		  /*function fac(n){
+		  	if(n==1)
+		  	{
+		  		return 1;
+		  	}
+		  	return fac(n-1)*n;
+		  }*/
+		  //alert(fac(5));
+		  function eq(a,b)
+		  {
+		  	return a==b;
+		  }
+		  function dec(n)
+		  {
+		  	 return --n;
+		  }
+		  function mul(a,b){
+		  	return a*b;
+		  }
+		  function fac(n)
+		  {
+		  	 if(eq(n,1)){
+		  	 	return 1;
+		  	 }
+		  	 return mul(n,fac(dec(n)));
+		  }
+		  alert(fac(4));
+	</script>
+</body>
+</html>

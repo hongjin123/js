@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	function abc(obj)
+	{
+		//alert(this.innerHTML); //window
+		alert(obj.innerHTML);
+	}
+</script>
+	<p onclick="alert(innerHTML)">hello world</p>
+	<marquee onmouseover="stop();" onmouseout="start();">hello</marquee>
+	<div onclick="alert(event.type)">abc</div>
+    <div onclick="abc(this)">kkk</div>
+</body>
+</html>

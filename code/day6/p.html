@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	 #my
+	 {
+		position: relative;
+	 }
+	 #my p
+	 {
+	 	z-index:5;
+	 	display: none;
+	 	
+	 }
+	 #my img,#my p
+	 {
+	 	position: absolute;
+	 	top:0;
+	 	left:0;
+	 }
+	</style>
+</head>
+<body>
+ <div id="my">
+    <p id="info">显示的文字</p>
+	<img src="aaa.jpg" width="200" />
+</div>	
+<script>
+	objmy=document.getElementById("my");
+	objinfo=document.getElementById("info");
+	var posx,posy;
+	objmy.onmouseover=function()
+	{  
+		posx=this.offsetLeft;
+		posy=this.offsetTop;
+		objinfo.style.display="block";
+		
+
+	}
+	objmy.onmousemove=function(ev)
+	{
+		e=ev||event;
+		objinfo.style.left=e.clientX-posx+"px";
+		objinfo.style.top=e.clientY-posy+"px";
+	}
+	objmy.onmouseout=function()
+	{
+
+		objinfo.style.display="none";
+	}
+	
+	
+	
+
+</script>
+
+</body>
+</html>

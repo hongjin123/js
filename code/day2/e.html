@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>abc1</li>
+		<li>abc2</li>
+		<li>abc3</li>
+		<li>abc4</li>
+		<li>abc5</li>
+		<li>abc6</li>
+		<li>abc7</li>
+		<li>abc8</li>
+		<li>abc9</li>
+		<li>abc10</li>
+	</ul>
+	<script>
+		list=document.getElementsByTagName("ul")[0];
+		lis=document.getElementsByTagName("li");
+		var timer=null;
+		timer=setInterval(function(){
+		var node=list.removeChild(lis[0]); //得到删除的节点
+		list.appendChild(node);
+	},500);
+	</script>
+</body>
+</html>

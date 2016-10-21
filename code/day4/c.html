@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	#one
+	{
+		position:fixed;
+		bottom:10px;
+		right:0;
+		display: none;
+	}
+	</style>
+</head>
+<body style="height:2000px;">
+	<div id="one">
+		go top
+	</div>
+	<script>
+	    var objone=document.getElementById("one");
+	   
+		window.onscroll=function()
+		{
+           
+			var height=document.documentElement.clientHeight || document.body.clientHeight;
+			var scrolltop=document.documentElement.scrollTop|| document.body.scrollTop;
+			if(scrolltop>height)
+			{
+				objone.style.display="block";
+			}
+			else
+			{
+				objone.style.display="none";
+			}
+			objone.onclick=function()
+			{
+				document.documentElement.scrollTop=0;
+				document.body.scrollTop=0;
+			}
+		}
+	</script>
+</body>
+</html>

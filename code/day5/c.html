@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">click me</button>
+	<script>
+		var objbtn=document.getElementById("btn");
+		/*objbtn.onclick=function()
+		{
+			alert(this.innerHTML);
+		}
+		var type="click";
+		objbtn["on"+type]=function()
+		{
+			alert("hello");
+		}*/
+
+     function fn1()
+     {
+     	alert(this.innerHTML);
+     	alert(this==window);
+     	removeHandler(objbtn,"click",fn1);
+     }
+     function fn2()
+     {
+     	alert("2");
+     } 
+     function fn3()
+     {
+     	alert("3");
+     }
+    // objbtn.addEventListener("click",fn1,false);
+     //objbtn.addEventListener("click",fn2,false);
+    // objbtn.addEventListener("click",fn3,false);
+    /*objbtn.attachEvent("onclick",fn1);
+    objbtn.attachEvent("onclick",fn2);
+    objbtn.attachEvent("onclick",fn3);*/
+    function addHandler(element,type,handler)
+    {
+    	if(element.addEventListener)   //dom2 标准
+    	{
+    		element.addEventListener(type,handler,false); //this current instance
+    	}
+    	else if(element.attachEvent)  //ie dom2 
+    	{
+    		element.attachEvent("on"+type,handler);  //this window
+    	}
+    	else    //dom0
+    	{
+    		element["on"+type]=handler;
+    	}
+    }
+   function removeHandler(element,type,handler)
+    {
+    	if(element.removeEventListener)  //dom2 标准
+    	{ 
+    		element.removeEventListener(type,handler,false); //this current instance
+    	}
+    	else if(element.detachEvent)  //ie dom2
+    	{
+    		element.detachEvent("on"+type,handler);  //this window
+    	}
+    	else      //dom0
+    	{
+    		element["on"+type]=null;
+    	}
+    }
+    addHandler(objbtn,"click",fn1);
+  
+	</script>
+</body>
+</html>

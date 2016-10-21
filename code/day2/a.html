@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+		newp=document.createElement("P"); //创建节点不分大小写
+		newp.id="one";
+		//newp.innerHTML="hello world";
+		var txt=document.createTextNode("hello world txt ");
+		newp.appendChild(txt);
+		document.body.appendChild(newp);
+		newp1=document.createElement("P");
+		newp1.innerHTML="hello world1";
+		newp.parentNode.insertBefore(newp1,newp);//1 新节点 2 参照节点
+	</script>
+</body>
+</html>

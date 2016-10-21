@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		var name="hello window";
+		var p={
+			name:"hello object",
+			getName:function()
+			{
+				var name="hello function";
+				return this.name;
+			}
+
+		}
+		alert((wwwww=p.getName)());
+		//匿名函数的this 指向window
+
+		//(....=...)<=>function()
+		//	{
+		//	var name="hello function";
+		//		return this.name;
+		//	}
+
+		var t="abcdef";
+		(function(){
+			alert(this.t);
+		})();
+
+	</script>
+</body>
+</html>

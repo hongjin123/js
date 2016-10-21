@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		document.onmousewheel=fn;  //ie chrome
+		if(document.addEventListener) //firefox
+		{
+			document.addEventListener("DOMMouseScroll",fn,false);
+		}
+		function fn(ev)
+		{
+			var flag;
+			e=ev||event;
+			if(e.wheelDelta)    //ie chrome
+			flag=e.wheelDelta>0?true:false;
+			else
+			flag=e.detail<0?true:false;  //firefox
+		    if(flag)
+		    {
+		    	alert("up");
+		    }
+		    else
+		    {
+		    	alert("down");
+		    }
+		}
+	</script>
+</body>
+</html>

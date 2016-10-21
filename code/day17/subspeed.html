@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	 #my
+	 {
+	 	width:100px;height: 100px; background: #ccc;
+	 	position: absolute;
+	 	top:30px;
+	 	left:10px;
+	 }
+	</style>
+</head>
+<body>
+	<div id="my">my div</div>
+	<button id="btn">button</button>
+	<button id="btn1">button</button>
+	<script>
+		var objBtn=document.getElementById("btn");
+		var objBtn1=document.getElementById("btn1");
+		var objMy=document.getElementById("my");
+		var timer=null;
+		var direction=true;
+		objBtn.onclick=function()
+		{	
+			
+			 if(objMy.offsetLeft==10){
+ 				Move(objMy,500);
+ 			}
+ 			 if(objMy.offsetLeft==500){
+ 				Move(objMy,10);
+ 			}
+ 			
+ 			//direction=!direction;
+ 		
+		}
+
+
+		function Move(obj,target){
+			clearInterval(timer);
+			var speed;
+			timer=setInterval(function(){
+				speed=(target-obj.offsetLeft)/8;
+				speed=speed>0?Math.ceil(speed):Math.floor(speed);
+				if(obj.offsetLeft==target){
+					clearInterval(timer);
+				}
+				else{
+				objMy.style.left=objMy.offsetLeft+speed+"px";
+			    }
+			},30);
+		}
+		var a=[1,3,4,5,2,8,10,9];
+		 function quickSort(data){
+		 	if(data.length<1){
+		 		return data;
+		 	}
+		 	var mid=Math.floor(data.length/2);
+		 	var base=data.splice(mid,1)[0];
+		 	var left=[];
+		 	var right=[];
+		 	for(var i=0;i<data.length;i++){
+		 	 if(data[i]<base){
+		 		left.push(data[i]);
+		 	}
+		 	else if(data[i]>base){
+		 		right.push(data[i]);
+		 	}
+		 }
+		 	return quickSort(left).concat(base,quickSort(right));
+		 }
+    alert(quickSort(a));
+	</script>
+</body>
+</html>
